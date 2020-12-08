@@ -1,0 +1,8 @@
+
+Command 'cata' not found, did you mean:
+
+  command 'caja' from deb caja (1.24.0-1)
+  command 'cat' from deb coreutils (8.30-3ubuntu2)
+
+Try: sudo apt install <deb name>
+

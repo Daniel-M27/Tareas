@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+
+\graphicspath{ {C:/Users/Daniel/Pictures/Compu/} }
+\title{\textbf{Convertir enteros en Base-n a Base-10 y viceversa.}}
+\author{Daniel López López}
+\date{8 de diciembre de 2020}
+
+\begin{document}
+\maketitle
+
+\emph{Nota.} Puedes escoger una base particular en tu algoritmo, por ejemplo base $n=2$ (binario). Mi solución funciona para $n$'s entre 2 y 9 ($2\leq n \leq 10$). 
+
+\
+
+\textbf{Planteamiento}
+
+La forma convencional en la que acostumbramos escribir números es usando Base-10, donde cada dígito es en realidad un coeficiente que multiplica a cierta potencia de $10$. Por ejemplo, el número $15,251$ es una abreviación de la expresión:
+
+\[ 1\cdot 10^4 + 5\cdot 10^3 + 2\cdot 10^2 + 5\cdot 10^1 + 1\cdot 10^0.\]
+
+Esta notación basada en una expansión polinomial resulta increíblemente útil a la hora de realizar cálculos que involucren números grandes, pues toma gran ventaja de las reglas algebraicas de sumas y productos. 
+
+Aunque el asunto de realizar operaciones aritméticas nos parezca trivial en la actualidad, solía ser mucho más complicado. Por ejemplo, en la Europa medieval predominaban los números romanos, cuya manipulación aritmética es mucho más tediosa  y requiere un mínimo de conocimiento matemático (del que gran parte de la población carecía).  En cambio, los cálculos con números indo-arábigos pueden hacerse de manera sencilla en un ábaco sin necesidad de entender el algoritmo detrás de ellos.
+
+\
+
+Volviendo a la expresión polinomial, esta forma de denotar números es fácilmente generalizable para potencias de otros números. En general, cualquier entero positivo puede escribirse como:
+
+\[ n=r_ka^k + \ldots + r_1a+r_0a^0 \]
+
+donde $0\leq r_i<a$ para $i=0,\ldots , k$ y $r_k\neq 0$. Aquí, $a$ es la base del número, y sus coeficientes puestos uno tras otro, $(r_k\ldots r_1r_0)_a$, es la representación en Base-$a$ de $n$.
+
+Para encontrar la representación decimal basta con realizar los cálculos de la forma usual para reducir el polinomio.
+
+\vspace{3em}
+
+Para el procedimiento contrario hay que aplicar iteradamente el algoritmo de la división sobre los cocientes. Por ejemplos, si tenemos 273 y queremos convertirlo a Base-5 podemos escribir:
+
+\begin{align*}
+	273 &= 54\cdot 5 + 3 \\
+	&= (10\cdot 5 + 4)\cdot 5 + 3 \cdot 5^0 \\
+	&= 10\cdot 5^2 + 4\cdot 5 + 3 \cdot 5^0 \\
+	&= 2\cdot 5^3 + 0\cdot 5^2 + 4\cdot 5 + 3 \cdot 5^0. \\
+\end{align*}
+
+El algoritmo termina cuando el último cociente $r_k$ satisfaga que $r_k <$ base, en este caso $5$. Mientras esto no ocurra, seguimos dividiendo los cocientes entre la base.
+
+\noindent Los coeficientes (que son los residuos) finales son la representación del número en la base deseada. En este caso $273=(2043)_5$.
+
+\end{document}
