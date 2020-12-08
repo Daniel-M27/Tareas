@@ -22,20 +22,25 @@ if mode == '1':
     pow = []
     times = []
 
+
+# El algoritmo puede hacerse de manera más simple, pero creo que vale la pena
+# (en especial para bases pequeñas) excluir todos los ceros del número para
+# agilizar el cálculo.
+
     if filter == True:
         for i, x in enumerate(bin):
-            if x != '0':
+            if x != '0':                                # Almacena la posición de los dígitos que no son 0.
                 ind.append(i)
 
         for x in ind:
-            pow.append(base**(order - x))
+            pow.append(base**(order - x))               # Almacena las potencias cuyos coeficientes no son 0.
 
         for x in bin:
-            if x != '0':
+            if x != '0':                                # Almacena los dígitos que no son 0.
                 num.append(int(x))
 
-        for j in range(len(num)):
-            times.append(num[j] * pow[j])
+        for j in range(len(num)):                       # Multiplica todas las potencias con sus
+            times.append(num[j] * pow[j])               # respectivos coeficientes.
 
         print(sum(times))
 
@@ -64,7 +69,7 @@ elif mode == '2':
 
     while base <= num:
         mod.append(str(num % base))
-        num = floor(Decimal(num) / Decimal(base))
+        num = floor(Decimal(num) / Decimal(base))    # Decimal() evita redondeos indeseados con números grandes.
     mod.append(str(num))
 
     convert = reverse(mod)
