@@ -52,9 +52,6 @@ if mode == '1':
 #######################################################################################################################
 
 elif mode == '2':
-    from math import floor
-    from decimal import Decimal
-
     def reverse(list):                                   # Invierte el orden de elementos en una lista.
         return [x for x in reversed(list)]
 
@@ -74,7 +71,7 @@ elif mode == '2':
 
         while base <= num:
             mod.append(str(num % base))
-            num = floor(Decimal(num) / Decimal(base))    # Decimal() evita redondeos indeseados con números grandes.
+            num = num // base                            # Equivale a floor(num / base).
         mod.append(str(num))
 
         convert = reverse(mod)

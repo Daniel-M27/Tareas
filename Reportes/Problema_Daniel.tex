@@ -1,13 +1,19 @@
-\documentclass{article}
+\documentclass[10pt, letterpaper]{article}
 \usepackage[utf8]{inputenc}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
-\usepackage{graphicx}
-\usepackage{float}
+\usepackage{hyperref}
 
-\graphicspath{ {C:/Users/Daniel/Pictures/Compu/} }
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,      
+    urlcolor=blue,
+}
+
+\urlstyle{same}
+
 \title{\textbf{Convertir enteros en Base-n a Base-10 y viceversa.}}
 \author{Daniel López López}
 \date{8 de diciembre de 2020}
@@ -15,7 +21,9 @@
 \begin{document}
 \maketitle
 
-\emph{Nota.} Puedes escoger una base particular en tu algoritmo, por ejemplo base $n=2$ (binario). Mi solución funciona para $n$'s entre 2 y 9 ($2\leq n \leq 10$). 
+Implementa un algoritmo que convierta un entero escrito en Base-$a$ a notación decimal (Base-$10$) y viceversa. Es decir, algo como \href{https://www.rapidtables.com/convert/number/base-converter.html}{\underline{esto}}.
+
+\emph{Nota.} Puedes escoger una base particular en tu algoritmo, por ejemplo base $a=2$ (binario). Mi solución funciona para $a$'s entre 2 y 10 ($2\leq a \leq 10$). 
 
 \
 
@@ -29,19 +37,26 @@ Esta notación basada en una expansión polinomial resulta increíblemente útil
 
 Aunque el asunto de realizar operaciones aritméticas nos parezca trivial en la actualidad, solía ser mucho más complicado. Por ejemplo, en la Europa medieval predominaban los números romanos, cuya manipulación aritmética es mucho más tediosa  y requiere un mínimo de conocimiento matemático (del que gran parte de la población carecía).  En cambio, los cálculos con números indo-arábigos pueden hacerse de manera sencilla en un ábaco sin necesidad de entender el algoritmo detrás de ellos.
 
-\
+\vspace{3em}
 
-Volviendo a la expresión polinomial, esta forma de denotar números es fácilmente generalizable para potencias de otros números. En general, cualquier entero positivo puede escribirse como:
+Volviendo a la expresión polinomial, esta forma de denotar números es fácilmente generalizable para potencias de otros números. En general, cualquier entero positivo puede escribirse \emph{de manera única} como:
 
 \[ n=r_ka^k + \ldots + r_1a+r_0a^0 \]
 
 donde $0\leq r_i<a$ para $i=0,\ldots , k$ y $r_k\neq 0$. Aquí, $a$ es la base del número, y sus coeficientes puestos uno tras otro, $(r_k\ldots r_1r_0)_a$, es la representación en Base-$a$ de $n$.
 
-Para encontrar la representación decimal basta con realizar los cálculos de la forma usual para reducir el polinomio.
+\newpage
+
+Para encontrar la representación decimal basta con realizar los cálculos de la forma usual para reducir el polinomio. Por ejemplo, si tenemos el número $(12021)_3$ escribimos
+
+\begin{align*}
+	(12021)_3 &= 1\cdot 3^4 + 2\cdot 3^3 + 0\cdot 3^2 + 2\cdot 3^1 + 1\cdot 3^0 \\
+	&= 81 + 54 + 0 + 6 + 1 = 142.
+\end{align*}
 
 \vspace{3em}
 
-Para el procedimiento contrario hay que aplicar iteradamente el algoritmo de la división sobre los cocientes. Por ejemplos, si tenemos 273 y queremos convertirlo a Base-5 podemos escribir:
+Para el procedimiento contrario hay que aplicar iteradamente el algoritmo de la división sobre los cocientes. Por ejemplo, si tenemos 273 y queremos convertirlo a Base-5 podemos escribir:
 
 \begin{align*}
 	273 &= 54\cdot 5 + 3 \\
