@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def floats(str):
-    return list(map(float, str.split(',')))
+    return list(map(float, str.split()))
 
-vert = floats(input("Ingrese el vértice (h,k) como h, k:  "))
+vert = floats(input("Ingrese el vértice (h,k) como h k:  "))
 c = float(input("Distancia del foco al vértice: "))
 if c == 0:
     print("La distancia debe ser distinta de cero.")

@@ -8,7 +8,7 @@ acc = float(input("Aceleración: "))
 p_init = float(input("Posición inicial: "))
 v_init = float(input("Velocidad Inicial: "))
 
-interval = floats(input("Ingrese el intervalo [t0, tf] como t0 tf: "))
+interval = floats(input("Ingrese el intervalo [t0, tf] (S) como t0 tf: "))
 t0 = interval[0]
 tf = interval[1]
 

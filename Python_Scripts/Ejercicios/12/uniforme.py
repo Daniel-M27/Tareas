@@ -2,13 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def floats(str):
-    return list(map(float, str.split(',')))
+    return list(map(float, str.split()))
 
-vel = float(input("Velocidad: "))
+vel = float(input("Velocidad(m/s): "))
 init = float(input("Posición inicial: "))
 # Parámetros necesarios.
 
-interval = floats(input("Ingrese el intervalo [t0, tf] como t0, tf: "))
+interval = floats(input("Ingrese el intervalo [t0, tf] (s) como t0 tf: "))
 t0 = interval[0]
 tf = interval[1]
 
@@ -32,9 +32,9 @@ with open('uniform.csv', 'w') as f:
     f.write('\n'.join('{},{},{},0'.format(t[i], pos[i], vel) for i in lenght))
 # Datos del movimient, separados por columnas.
 
-plt.plot(t, pos, color='#222288', label='Posición')
-plt.plot(t, v, color='#ffd700', linestyle='-.', label='Velocidad')
-plt.plot(t, a, color='#329932', linestyle='--', label='Aceleración')
+plt.plot(t, pos, color='#222288', label='Posición(m)')
+plt.plot(t, v, color='#ffd700', linestyle='-.', label='Velocidad(m/s)')
+plt.plot(t, a, color='#329932', linestyle='--', label='Aceleración(m/s²)')
 # Gráficas del movimiento respecto al tiempo.
 
 plt.xlabel("Tiempo")
@@ -46,4 +46,3 @@ plt.tight_layout()
 
 plt.show()
 
-fig.savefig('Uniforme.png')

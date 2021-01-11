@@ -10,7 +10,7 @@ while True:
     Br2 = floats(input(" Renglón 2: "))
 # Obtenemos cada renglón individualmente.
 
-    if Ar1 == Ar2 == Br1 == Br2 == 2:
+    if len(Ar1) == len(Ar2) == len(Br1) == len(Br2) == 2:
         sumR1 = [Ar1[0] + Br1[0], Ar1[1] + Br2[1]]
         sumR2 = [Ar2[0] + Br2[0], Ar2[1] + Br2[1]]
 # Revisamos que las matrices sean de 2x2.
