@@ -10,11 +10,7 @@ while True:
     s = vec2[1]
     t = vec2[2]
 
-    x = b * t - s * c       # Coordenada x del producto cruz.
-    y = c * r - a * t       # Coordenada y del producto cruz.
-    z = a * s - b * r       # Coordenada z del producto cruz.
-
     if len(vec1) == len(vec2) == 3:                 # Verifica que ambos vectores sean de R³.
-        print(f"({x},{y},{z})")
+        print(f"({a + r},{b + s},{c + t})")
     else:
         print('Ingrese vectores de R³.')

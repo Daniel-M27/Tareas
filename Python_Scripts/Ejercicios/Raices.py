@@ -4,12 +4,16 @@ import cmath as cm    # Este módulo permite realizar cálculos con números com
 print("Ingrese los coeficientes del polinomio ax² + bx + c con el formato a b c ")
 
 while True:
-    coeff = list(map(float,  input("> ").split()))      # Almacena los coeficientes en una lista (siendo ya números).
+    coeff = list(map(float,  input("> ").split()))
+    # Almacena los coeficientes en una lista (siendo ya números).
+
     a = coeff[0]
     b = coeff[1]
     c = coeff[2]
 
-    disc = b ** 2 - 4 * a * c      # Discriminante (radical) de la fórmula cuadrática. Su valor determina qué tipo de raices tiene el polinomio.
+    disc = b ** 2 - 4 * a * c
+    # Discriminante (radical) de la fórmula cuadrática. Su valor determina qué
+    # tipo de raices tiene el polinomio.
 
     print("Raices del polinomio ({})x² + ({})x + ({}) :".format(a, b, c))
 
@@ -40,7 +44,7 @@ while True:
         print(f"""Función lineal de la forma mx + b.
         \rx = {-c / b}
         """)
-    elif a == 0 and b == 0:                                     # Caso trivial y casos sin solución.
+    elif a == b == 0:                                           # Caso trivial y casos sin solución.
         if c != 0:
             print("""
             \rNingún número es una solución de {}x² + {}x + ({}) = 0
